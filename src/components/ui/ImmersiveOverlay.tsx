@@ -8,7 +8,7 @@ import ProjectsPanel from "./panels/ProjectsPanel";
 import ExperiencePanel from "./panels/ExperiencePanel";
 import AchievementsPanel from "./panels/AchievementsPanel";
 import ContactPanel from "./panels/ContactPanel";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 interface ImmersiveOverlayProps {
   planet: PlanetData;
@@ -26,13 +26,7 @@ const PANEL_MAP: Record<string, React.ComponentType<any>> = {
 
 export default function ImmersiveOverlay({ planet, onClose }: ImmersiveOverlayProps) {
   const Panel = PANEL_MAP[planet.id];
-  const [scanLine, setScanLine] = useState(0);
-
-  // Scan line animation
-  useEffect(() => {
-    const interval = setInterval(() => setScanLine(p => (p + 1) % 100), 16);
-    return () => clearInterval(interval);
-  }, []);
+  // Scan line is animated entirely with CSS — no React state, no re-renders
 
   // ESC to close
   useEffect(() => {
@@ -99,11 +93,10 @@ export default function ImmersiveOverlay({ planet, onClose }: ImmersiveOverlayPr
           />
         ))}
 
-        {/* Scan line */}
-        <div style={{
+        {/* Scan line — CSS-only animation, zero React re-renders */}
+        <div className="scan-line-animated" style={{
           position: "absolute",
           left: 0, right: 0,
-          top: `${scanLine}%`,
           height: 1,
           background: `linear-gradient(90deg, transparent, ${planet.glowColor}40, transparent)`,
           pointerEvents: "none",
@@ -138,6 +131,8 @@ export default function ImmersiveOverlay({ planet, onClose }: ImmersiveOverlayPr
 
       {/* Main holographic panel */}
       <motion.div
+        key="overlay"
+        className="overlay-panel-container"
         initial={{ opacity: 0, y: 30, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -20, scale: 0.98 }}
@@ -174,15 +169,18 @@ export default function ImmersiveOverlay({ planet, onClose }: ImmersiveOverlayPr
           maxHeight: "88vh",
         }}>
           {/* ── Header ─────────────────────────────────────────────────────── */}
-          <div style={{
-            padding: "20px 28px 16px",
-            borderBottom: `1px solid ${planet.glowColor}20`,
-            background: `linear-gradient(135deg, rgba(2,6,22,0.95) 0%, rgba(6,12,40,0.8) 100%)`,
-            flexShrink: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}>
+          <div
+            className="overlay-header"
+            style={{
+              padding: "20px 28px 16px",
+              borderBottom: `1px solid ${planet.glowColor}20`,
+              background: `linear-gradient(135deg, rgba(2,6,22,0.95) 0%, rgba(6,12,40,0.8) 100%)`,
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
               {/* Planet icon */}
               <motion.div
@@ -224,7 +222,10 @@ export default function ImmersiveOverlay({ planet, onClose }: ImmersiveOverlayPr
 
             {/* HUD info + close */}
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              <div style={{ fontFamily: "Orbitron, monospace", fontSize: 9, color: `${planet.glowColor}70`, textAlign: "right", lineHeight: 1.9 }}>
+              <div
+                className="overlay-header-hud"
+                style={{ fontFamily: "Orbitron, monospace", fontSize: 9, color: `${planet.glowColor}70`, textAlign: "right", lineHeight: 1.9 }}
+              >
                 <div>ORBIT: {planet.orbitRadius} AU</div>
                 <div style={{ color: planet.glowColor }}>● LANDED</div>
               </div>
@@ -260,13 +261,16 @@ export default function ImmersiveOverlay({ planet, onClose }: ImmersiveOverlayPr
           <div style={{ height: 2, background: `linear-gradient(90deg, transparent, ${planet.glowColor}, transparent)`, flexShrink: 0 }} />
 
           {/* ── Scrollable content ─────────────────────────────────────────── */}
-          <div style={{
-            overflowY: "auto",
-            flex: 1,
-            padding: "24px 28px 28px",
-            scrollbarWidth: "thin",
-            scrollbarColor: `${planet.glowColor}40 transparent`,
-          }}>
+          <div
+            className="overlay-content"
+            style={{
+              overflowY: "auto",
+              flex: 1,
+              padding: "24px 28px 28px",
+              scrollbarWidth: "thin",
+              scrollbarColor: `${planet.glowColor}40 transparent`,
+            }}
+          >
             {Panel && <Panel planet={planet} />}
           </div>
 

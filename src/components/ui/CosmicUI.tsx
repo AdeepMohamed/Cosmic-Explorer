@@ -63,6 +63,7 @@ export default function CosmicUI({ planets, activePlanet, onSelectPlanet }: Cosm
 
         {/* Status */}
         <motion.div
+          className="hud-status"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
@@ -80,6 +81,7 @@ export default function CosmicUI({ planets, activePlanet, onSelectPlanet }: Cosm
 
         {/* Coordinates */}
         <motion.div
+          className="hud-coordinates"
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
@@ -99,6 +101,7 @@ export default function CosmicUI({ planets, activePlanet, onSelectPlanet }: Cosm
 
       {/* Left nav — Planet list */}
       <motion.div
+        className="left-nav-dock"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.8 }}
@@ -117,6 +120,7 @@ export default function CosmicUI({ planets, activePlanet, onSelectPlanet }: Cosm
         {planets.map((planet, i) => (
           <motion.button
             key={planet.id}
+            className="left-nav-button"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.4 + i * 0.1 }}
@@ -150,17 +154,23 @@ export default function CosmicUI({ planets, activePlanet, onSelectPlanet }: Cosm
               flexShrink: 0,
             }} />
             <div style={{ textAlign: "left" }}>
-              <div style={{
-                fontFamily: "Orbitron, monospace",
-                fontSize: 9,
-                color: planet.glowColor,
-                letterSpacing: "0.1em",
-              }}>{planet.label}</div>
-              <div style={{
-                fontFamily: "Rajdhani, sans-serif",
-                fontSize: 10,
-                color: "rgba(255,255,255,0.4)",
-              }}>{planet.name}</div>
+              <div
+                className="left-nav-label"
+                style={{
+                  fontFamily: "Orbitron, monospace",
+                  fontSize: 9,
+                  color: planet.glowColor,
+                  letterSpacing: "0.1em",
+                }}
+              >{planet.label}</div>
+              <div
+                className="left-nav-sublabel"
+                style={{
+                  fontFamily: "Rajdhani, sans-serif",
+                  fontSize: 10,
+                  color: "rgba(255,255,255,0.4)",
+                }}
+              >{planet.name}</div>
             </div>
           </motion.button>
         ))}
@@ -168,6 +178,7 @@ export default function CosmicUI({ planets, activePlanet, onSelectPlanet }: Cosm
 
       {/* Bottom HUD bar */}
       <motion.div
+        className="bottom-hud-instructions"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
@@ -185,7 +196,8 @@ export default function CosmicUI({ planets, activePlanet, onSelectPlanet }: Cosm
           zIndex: 20,
         }}
       >
-        <span>DRAG TO ORBIT  •  SCROLL TO ZOOM  •  CLICK PLANET TO EXPLORE</span>
+        <span className="desktop-hint">DRAG TO ORBIT  •  SCROLL TO ZOOM  •  CLICK PLANET TO EXPLORE</span>
+        <span className="mobile-hint">TAP PLANET TO EXPLORE  •  PINCH TO ZOOM  •  🚀 FIND THE ROCKET!</span>
       </motion.div>
 
       {/* Active planet indicator */}

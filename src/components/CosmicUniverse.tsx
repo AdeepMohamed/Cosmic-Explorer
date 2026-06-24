@@ -12,10 +12,12 @@ import OrbitRing from "./three/OrbitRing";
 import AsteroidBelt from "./three/AsteroidBelt";
 import PostProcessing from "./three/PostProcessing";
 import CameraRig from "./three/CameraRig";
+import FloatingRocket from "./three/FloatingRocket";
 import CosmicUI from "./ui/CosmicUI";
 import WelcomeBanner from "./ui/WelcomeBanner";
 import AudioController from "./ui/AudioController";
 import ImmersiveOverlay from "./ui/ImmersiveOverlay";
+import ResumeModal from "./ui/ResumeModal";
 import { PLANETS } from "@/data/planets";
 import type { PlanetData } from "@/data/planets";
 
@@ -35,10 +37,11 @@ const PLANET_CONFIG: Record<string, {
 };
 
 export default function CosmicUniverse() {
-  const [activePlanet, setActivePlanet] = useState<PlanetData | null>(null);
-  const [showWelcome, setShowWelcome]   = useState(true);
-  const [isFlying, setIsFlying]         = useState(false);
-  const [showContent, setShowContent]   = useState(false);
+  const [activePlanet, setActivePlanet]   = useState<PlanetData | null>(null);
+  const [showWelcome, setShowWelcome]     = useState(true);
+  const [isFlying, setIsFlying]           = useState(false);
+  const [showContent, setShowContent]     = useState(false);
+  const [showResumeModal, setShowResumeModal] = useState(false);
   const orbitRef    = useRef<any>(null);
   const planetPositions = useRef<Map<string, THREE.Vector3>>(new Map());
 
@@ -111,6 +114,9 @@ export default function CosmicUniverse() {
 
           {/* Cinematic post-processing */}
           <PostProcessing />
+
+          {/* Roaming rocket — catch it for the resume! */}
+          <FloatingRocket onCatch={() => setShowResumeModal(true)} />
 
           {/* GSAP camera fly-to rig */}
           <CameraRig
@@ -193,6 +199,7 @@ export default function CosmicUniverse() {
                 pointerEvents: "none",
                 whiteSpace: "nowrap",
               }}
+            className="warp-indicator"
             >
               ◈ ENGAGING WARP DRIVE ◈
             </motion.div>
@@ -210,6 +217,12 @@ export default function CosmicUniverse() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* ── Resume download modal (triggered by catching the rocket) ─── */}
+      <ResumeModal
+        isOpen={showResumeModal}
+        onClose={() => setShowResumeModal(false)}
+      />
     </div>
   );
 }
