@@ -49,11 +49,10 @@ export default function WelcomeBanner({ onDismiss }: WelcomeBannerProps) {
           borderRadius: "50%",
           background: "radial-gradient(circle, rgba(6,182,212,0.6) 0%, rgba(107,33,168,0.4) 100%)",
           boxShadow: "0 0 40px rgba(6,182,212,0.5)",
-          animation: "pulse-glow 2s ease-in-out infinite",
+          animation: "pulse-glow 2s ease-in-out infinite, spin-slow 10s linear infinite reverse",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          animation: "spin-slow 10s linear infinite reverse",
         }}>
           <span style={{ fontSize: 24 }}>🚀</span>
         </div>

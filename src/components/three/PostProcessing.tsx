@@ -5,8 +5,7 @@ import { BlendFunction } from "postprocessing";
 
 export default function PostProcessing() {
   return (
-    <EffectComposer multisampling={0} disableNormalPass>
-      {/* Bloom — soft, controlled glow (not blinding) */}
+    <EffectComposer multisampling={0}>
       <Bloom
         intensity={0.55}
         luminanceThreshold={0.35}
@@ -14,7 +13,6 @@ export default function PostProcessing() {
         mipmapBlur
         radius={0.5}
       />
-      {/* Vignette — cinematic depth without harshness */}
       <Vignette
         eskil={false}
         offset={0.32}
