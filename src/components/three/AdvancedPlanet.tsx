@@ -131,17 +131,17 @@ export default function AdvancedPlanet({
     <group ref={groupRef}>
       {/* Outer selection glow */}
       <mesh ref={glowRef} scale={glowScale}>
-        <sphereGeometry args={[planet.size, 32, 32]} />
+        <sphereGeometry args={[planet.size, 24, 24]} />
         <primitive object={glowMaterial} attach="material" />
       </mesh>
 
       {/* Atmosphere */}
       <mesh ref={atmoRef} scale={atmoScale}>
-        <sphereGeometry args={[planet.size, 64, 64]} />
+        <sphereGeometry args={[planet.size, 48, 48]} />
         <primitive object={atmosphereMaterial} ref={atmoMatRef} attach="material" />
       </mesh>
 
-      {/* Planet surface — high poly */}
+      {/* Planet surface */}
       <mesh
         ref={meshRef}
         castShadow
@@ -150,14 +150,14 @@ export default function AdvancedPlanet({
         onPointerEnter={handlePointerEnter}
         onPointerLeave={handlePointerLeave}
       >
-        <sphereGeometry args={[planet.size, 128, 128]} />
+        <sphereGeometry args={[planet.size, 64, 64]} />
         <primitive object={planetMaterial} ref={planetMatRef} attach="material" />
       </mesh>
 
       {/* Hover/active energy ring */}
       {(hovered || isActive) && (
         <mesh rotation={[Math.PI * 0.45, 0, 0]}>
-          <torusGeometry args={[planet.size * 1.35, 0.06, 8, 128]} />
+          <torusGeometry args={[planet.size * 1.35, 0.06, 8, 64]} />
           <meshBasicMaterial
             color={planet.glowColor}
             transparent opacity={0.7}
@@ -170,7 +170,7 @@ export default function AdvancedPlanet({
       {/* Active scan ring */}
       {isActive && (
         <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[planet.size * 1.6, planet.size * 1.65, 128]} />
+          <ringGeometry args={[planet.size * 1.6, planet.size * 1.65, 64]} />
           <meshBasicMaterial
             color={planet.glowColor}
             transparent opacity={0.5}

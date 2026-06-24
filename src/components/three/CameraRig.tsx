@@ -56,7 +56,7 @@ export default function CameraRig({
         x: targetCamPos.x,
         y: targetCamPos.y,
         z: targetCamPos.z,
-        duration: 2.8,
+        duration: 1.8,
         ease: "power3.inOut",
         onComplete: () => {
           isAnimating.current = false;
@@ -69,7 +69,7 @@ export default function CameraRig({
         x: planetPos.x,
         y: planetPos.y,
         z: planetPos.z,
-        duration: 2.8,
+        duration: 1.8,
         ease: "power3.inOut",
       });
 
@@ -85,7 +85,7 @@ export default function CameraRig({
         x: HOME_POS.x,
         y: HOME_POS.y,
         z: HOME_POS.z,
-        duration: 2.5,
+        duration: 1.6,
         ease: "power2.inOut",
         onComplete: () => {
           isAnimating.current = false;
@@ -97,7 +97,7 @@ export default function CameraRig({
         x: HOME_TARGET.x,
         y: HOME_TARGET.y,
         z: HOME_TARGET.z,
-        duration: 2.5,
+        duration: 1.6,
         ease: "power2.inOut",
       });
     }

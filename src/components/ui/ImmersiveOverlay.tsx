@@ -136,7 +136,7 @@ export default function ImmersiveOverlay({ planet, onClose }: ImmersiveOverlayPr
         initial={{ opacity: 0, y: 30, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -20, scale: 0.98 }}
-        transition={{ type: "spring", damping: 28, stiffness: 180, delay: 0.15 }}
+        transition={{ type: "spring", damping: 28, stiffness: 200 }}
         style={{
           position: "relative",
           width: "min(92vw, 920px)",

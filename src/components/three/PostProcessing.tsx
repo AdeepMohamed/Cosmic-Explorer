@@ -7,11 +7,11 @@ export default function PostProcessing() {
   return (
     <EffectComposer multisampling={0}>
       <Bloom
-        intensity={0.4}
-        luminanceThreshold={0.38}
-        luminanceSmoothing={0.9}
+        intensity={0.3}
+        luminanceThreshold={0.42}
+        luminanceSmoothing={0.85}
         mipmapBlur
-        radius={0.38}
+        radius={0.32}
       />
       <Vignette
         eskil={false}

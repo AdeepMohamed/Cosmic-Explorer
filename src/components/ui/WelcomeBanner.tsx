@@ -16,16 +16,22 @@ export default function WelcomeBanner({ onDismiss }: WelcomeBannerProps) {
       transition={{ duration: 0.8, ease: "easeOut" }}
       style={{
         position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        textAlign: "center",
+        inset: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflowY: "auto",
         zIndex: 50,
         pointerEvents: "all",
-        maxWidth: 600,
-        width: "90vw",
+        padding: "20px 16px env(safe-area-inset-bottom, 20px)",
       }}
     >
+      <div style={{
+        textAlign: "center",
+        maxWidth: 600,
+        width: "100%",
+        flexShrink: 0,
+      }}>
       {/* Outer ring decoration */}
       <div style={{
         width: 120,
@@ -139,14 +145,15 @@ export default function WelcomeBanner({ onDismiss }: WelcomeBannerProps) {
         </motion.button>
       </motion.div>
 
-      {/* Scan lines effect */}
-      <div style={{
-        position: "absolute",
-        inset: -20,
-        background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(6,182,212,0.015) 2px, rgba(6,182,212,0.015) 4px)",
-        pointerEvents: "none",
-        borderRadius: 20,
-      }} />
+        {/* Scan lines effect */}
+        <div style={{
+          position: "absolute",
+          inset: -20,
+          background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(6,182,212,0.015) 2px, rgba(6,182,212,0.015) 4px)",
+          pointerEvents: "none",
+          borderRadius: 20,
+        }} />
+      </div>
     </motion.div>
   );
 }
