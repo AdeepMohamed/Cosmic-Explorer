@@ -159,7 +159,7 @@ export default function ImmersiveOverlay({ planet, onClose }: ImmersiveOverlayPr
 
         <div style={{
           background: "rgba(2, 6, 22, 0.92)",
-          backdropFilter: "blur(40px)",
+          backdropFilter: "blur(10px)",
           borderRadius: 20,
           border: `1px solid ${planet.glowColor}35`,
           boxShadow: `0 0 80px ${planet.glowColor}20, 0 0 200px ${planet.glowColor}08, inset 0 1px 0 rgba(255,255,255,0.06)`,
