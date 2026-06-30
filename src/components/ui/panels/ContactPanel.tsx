@@ -34,7 +34,7 @@ export default function ContactPanel({ planet }: { planet: PlanetData }) {
   const LINKS = [
     { label: "Email", value: "adeepmohamed78@gmail.com", icon: "📧", color: "#06b6d4", href: "mailto:adeepmohamed78@gmail.com" },
     { label: "Phone", value: "+91 8220905244", icon: "📞", color: "#10b981", href: "tel:+918220905244" },
-    { label: "GitHub", value: "github.com/Adeep", icon: "⭐", color: "#a855f7", href: "https://github.com/Adeep" },
+    { label: "GitHub", value: "github.com/AdeepMohamed", icon: "⭐", color: "#a855f7", href: "https://github.com/AdeepMohamed" },
     { label: "Location", value: "Tuticorin, TN", icon: "📍", color: "#f59e0b", href: "https://maps.google.com/?q=Tuticorin,Tamil+Nadu" },
   ];
 

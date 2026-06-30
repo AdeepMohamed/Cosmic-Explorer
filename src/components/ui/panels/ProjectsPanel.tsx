@@ -14,7 +14,8 @@ const PROJECTS = [
     tags: ["React", "TypeScript", "Supabase", "Gemini API"],
     description: "An AI-powered platform that analyzes resumes, calculates Applicant Tracking System (ATS) scores, parses documents, and provides personalized improvement suggestions to help candidates land interviews.",
     features: ["ATS Score Calculation", "Personalized Section Feedback", "Key Skill & Keyword Analysis", "PDF Document Parsing", "User History & Analytics"],
-    github: "https://github.com/Adeep",
+    github: "https://github.com/AdeepMohamed",
+    demo: "",
     status: "Complete",
   },
   {
@@ -26,7 +27,8 @@ const PROJECTS = [
     tags: ["JavaScript", "Vite", "Canvas API", "MediaPipe"],
     description: "Browser-based CV app enabling real-time gesture-controlled video cloaking (full-body, portal, focus-region) and AR hologram overlays using MediaPipe hand tracking and segmentation, with zero backend.",
     features: ["Real-Time Video Cloaking", "Gesture-Controlled Portals", "Focus-Region Tracking", "AR Hologram Overlays", "Zero Backend Architecture"],
-    github: "https://github.com/Adeep",
+    github: "https://github.com/AdeepMohamed/Null-frame",
+    demo: "https://null-frame-six.vercel.app/",
     status: "Live",
   },
   {
@@ -38,8 +40,9 @@ const PROJECTS = [
     tags: ["React", "Django", "PostgreSQL", "Gemini API"],
     description: "A secure medical records healthcare platform featuring AI-powered document summarization, medical report analysis, diagnostic insights, and a query-based personal health assistant.",
     features: ["AI Diagnostic Summarization", "Secure Document Repository", "Role-Based Medical Views", "Medical Report Insights", "Interactive Health Chatbot"],
-    github: "https://github.com/Adeep",
-    status: "Complete",
+    github: "https://github.com/AdeepMohamed/Medivault",
+    demo: "https://medivault-25kh.vercel.app/",
+    status: "Live",
   },
   {
     id: "campus-assistant",
@@ -50,7 +53,8 @@ const PROJECTS = [
     tags: ["React", "TypeScript", "Supabase", "Gemini API"],
     description: "An AI-driven campus assistant that provides academic information, event schedules, university resources, and direct student support through an intuitive chatbot interface.",
     features: ["Smart Campus Q&A Bot", "Event Tracking & Calendars", "Academic Advisor Links", "Campus Map Navigator", "Notifications & Announcements"],
-    github: "https://github.com/Adeep",
+    github: "https://github.com/AdeepMohamed",
+    demo: "",
     status: "Complete",
   },
   {
@@ -62,7 +66,8 @@ const PROJECTS = [
     tags: ["React", "TypeScript", "Supabase", "Gemini API"],
     description: "A personal finance management system that tracks spending patterns, visualizes budgets, and provides custom AI-based budgeting advice and savings recommendations.",
     features: ["Automated Spending Classifier", "AI Saving Advisor", "Financial Goal Trackers", "Interactive Budget Charts", "Anomaly Spending Alerts"],
-    github: "https://github.com/Adeep",
+    github: "https://github.com/AdeepMohamed",
+    demo: "",
     status: "Complete",
   },
 ];
@@ -312,6 +317,30 @@ export default function ProjectsPanel({ planet }: { planet: PlanetData }) {
                 >
                   ⭐ GITHUB
                 </a>
+                {selected.demo && (
+                  <a
+                    href={selected.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    data-hover
+                    style={{
+                      padding: "10px 20px",
+                      background: `linear-gradient(135deg, ${selected.color}33, transparent)`,
+                      border: `1px solid ${selected.color}`,
+                      borderRadius: 8,
+                      color: "#fff",
+                      fontFamily: "Orbitron, monospace",
+                      fontSize: 10,
+                      cursor: "pointer",
+                      textDecoration: "none",
+                      letterSpacing: "0.15em",
+                      transition: "all 0.3s ease",
+                      boxShadow: `0 0 15px ${selected.color}25`,
+                    }}
+                  >
+                    🚀 LIVE DEMO
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>
