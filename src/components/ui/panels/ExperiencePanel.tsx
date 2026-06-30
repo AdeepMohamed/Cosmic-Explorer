@@ -13,8 +13,7 @@ const EXPERIENCES = [
     color: "#f59e0b",
     icon: "💻",
     points: [
-      "Built full-stack features, collaborating in an agile team environment.",
-      "Contributed to a major project that included secure role-based authentication and full CRUD workflows.",
+      "Built full-stack features, collaborated in an agile team; contributed to a project that included role-based authentication and CRUD workflows.",
     ],
   },
   {
@@ -26,7 +25,7 @@ const EXPERIENCES = [
     color: "#06b6d4",
     icon: "🔌",
     points: [
-      "Worked on AI-integrated IoT solutions involving sensor data collection, monitoring, and real-time analytics.",
+      "Worked on AI-integrated IoT solutions involving sensor data collection, monitoring, and real-time analysis.",
       "Explored ESP32-based systems, data visualization, and AI-driven insights for intelligent automation.",
       "Gained hands-on experience in IoT architecture, embedded systems, and applied Artificial Intelligence.",
     ],
@@ -34,14 +33,14 @@ const EXPERIENCES = [
   {
     id: "vedant",
     org: "Vedant IT Solution Pvt. Ltd.",
-    role: "AI in Data Analytics Intern",
+    role: "Analytics Intern",
     duration: "May 2025 – Jun 2025",
     type: "Internship",
     color: "#a855f7",
     icon: "📊",
     points: [
-      "Performed detailed data analysis and visualization using Python and modern analytics libraries.",
-      "Worked on data preprocessing, exploratory data analysis (EDA), and generating key business insights from datasets.",
+      "Performed data analysis and visualization using Python and modern analytics tools.",
+      "Worked on data preprocessing, exploratory data analysis (EDA), and generating business insights from datasets..",
     ],
   },
 ];
